@@ -1,3 +1,4 @@
+from django.urls import include as estacionamento_include, path as estacionamento_path
 """
 URL configuration for config project.
 
@@ -31,3 +32,5 @@ urlpatterns = [
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
 ]+router.urls
+
+urlpatterns += [estacionamento_path("api/", estacionamento_include("estacionamento.urls"))]
